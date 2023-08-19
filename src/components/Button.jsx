@@ -1,10 +1,7 @@
 import "./Button.css";
 
-export const Button = ({ drinkOne, drinkTwo }) => {
-	return (
-		<div className='button-group'>
-			<button className='button'>{drinkOne}</button>
-			<button className='button'>{drinkTwo}</button>
-		</div>
-	);
-};
+export const Button = ({ text, clickOn }) => (
+	<button className='button' onClick={clickOn}>
+		{text}
+	</button>
+);

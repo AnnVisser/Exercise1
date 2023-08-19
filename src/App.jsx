@@ -1,6 +1,4 @@
-import { coffee, tea } from "../utils/data";
 import "./App.css";
-import { Button } from "./components/Button";
 import { DrinkChoice } from "./components/DrinkChoice";
 import { useState } from "react";
 import { DrinkSearch } from "./components/DrinkSearch";
@@ -15,20 +13,17 @@ export const App = () => {
 		</p>
 	);
 	const [userDrink, setUserDrink] = useState();
-	const newCustomer = (
-		<div>
-			<h1>{greeting}</h1>
-			{description}
-			<DrinkSearch />
-			<Button drinkOne={tea.name} drinkTwo={coffee.name} />
-		</div>
-	);
 
 	return (
-		<div>
-			<div className='App'>
-				{userDrink ? <DrinkChoice drink={userDrink} /> : newCustomer}
-			</div>
+		<div className='App'>
+			{userDrink ? (
+				<DrinkChoice drink={userDrink} />
+			) : (
+				<>
+					<h1>{greeting}</h1>
+					<DrinkSearch clickOn={setUserDrink} />
+				</>
+			)}
 		</div>
 	);
 };
